@@ -171,7 +171,7 @@ def _update_value(eventObject):
 
 # Create master GUI
 window = Tk()
-window.title("Proto Plot 3000")
+window.title("Proto Plotter 3000")
 window.configure(bg='#a1dbcd')
 
 # Create Figure Widget
