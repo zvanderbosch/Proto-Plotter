@@ -4,4 +4,4 @@ An interactive tool for performing by-eye fits of one- or two-component blackbod
 
 This tool was initially designed as an educational tool for inquiry based learning activities, as part of the UC Santa Cruz's Institute for Scientist & Engineer Educators (ISEE) Professional Development Program (PDP).
 
-<img src="data/protoplotter.png?raw=true" alt="Proto-Plotter 3000" width="65%"/>
+<img src="data/protoplotter.png?raw=true" alt="Proto-Plotter 3000" width="80%"/>
