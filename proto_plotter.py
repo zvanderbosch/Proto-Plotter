@@ -20,9 +20,7 @@ models.
 
 Simply run this script from the command line, but you
 must also have the "object_fluxes.csv" file in the 
-same directory for this script to work properly.
-
-This version is intended for Python 3.x users.
+data directory for this script to work properly.
 
 Author: Zach VAnderbosch
 Date: 2018-09-17
@@ -44,7 +42,7 @@ wave_vals = np.asarray([0.445,0.551,0.658,0.801,1.25,1.65,
 	                    2.2,3.6,4.5,5.8,8.0,24.0,70.0])
 freq_vals = (c / wave_vals) * 1e4
 path = os.getcwd() + '/'
-fname = glob('object_fluxes.csv')
+fname = glob('data/object_fluxes.csv')
 flux = np.loadtxt(path+fname[0],dtype=float,
 	              usecols=(1,2,3,4,5,6,7,8,9,10,11,12,13),
 	              delimiter=",")
@@ -172,9 +170,9 @@ def _update_value(eventObject):
 ###############  Configure the GUI  #################
 
 # Create master GUI
-master = Tk()
-master.title("Proto Plot 3000")
-master.configure(bg='#a1dbcd')
+window = Tk()
+window.title("Proto Plot 3000")
+window.configure(bg='#a1dbcd')
 
 # Create Figure Widget
 f = Figure(figsize=(9.0,6.0), dpi=100)
@@ -182,10 +180,10 @@ a = f.add_subplot(111)
 ip = 0
 ipd = 0
 
-dataPlot = FigureCanvasTkAgg(f, master=master)
+dataPlot = FigureCanvasTkAgg(f, master=window)
 dataPlot.get_tk_widget().grid(row=1, column=0)
 f.set_canvas(dataPlot)
-toolbar = Frame(master)
+toolbar = Frame(window)
 toolbar.grid(column=0, row=0)
 
 # Configure the plot to look so good
@@ -194,7 +192,6 @@ a.set_xscale('log')
 a.set_yscale('log')
 a.set_xlabel(r'Wavelength $(\mu m)$',fontsize=14)
 a.set_ylabel(r'Flux Density (cgs)',fontsize=14)
-#a.set_xlim(min(larr),max(larr))
 a.set_xlim(0.1,500)
 a.minorticks_on()
 a.tick_params(which='minor',direction='out',length=3,width=1.0)
@@ -268,17 +265,17 @@ action.grid(column=4, row=2)
 
 #####################################################
 
-# Configure frame and master window background colors
+# Configure frame and window background colors
 color_back='#E4E4E4'
 toolbar.configure(background=color_back)
-master.configure(background=color_back)
+window.configure(background=color_back)
 
 # Configure grid elements for window resizing
-master.grid_rowconfigure(1, weight=1)
-master.grid_columnconfigure(0, weight=1)
+window.grid_rowconfigure(1, weight=1)
+window.grid_columnconfigure(0, weight=1)
 
 #toolbar.grid(row=0, column=0, sticky="ew")
 toolbar.grid(row=0, column=0)
 dataPlot.get_tk_widget().grid(row=1, column=0, sticky="nsew")
 
-master.mainloop()
+window.mainloop()
