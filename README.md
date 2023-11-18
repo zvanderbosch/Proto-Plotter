@@ -9,7 +9,7 @@ This tool was initially designed as an educational tool for inquiry based learni
 To run proto-plotter on your machine, simply type:
 
 ```bash
-$ python proto_plotter.py
+python proto_plotter.py
 ```
 
 
